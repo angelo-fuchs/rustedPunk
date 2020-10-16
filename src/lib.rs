@@ -1,3 +1,5 @@
+use std::fmt;
+
 // Name: Erwin Müller
 // Role: Corporate Age: 23
 // Att:3/3
@@ -16,16 +18,32 @@ pub struct Character {
     pub name: String,
     pub role: String,
     pub age: usize,
-    pub att: (usize, usize),
-    pub mov: (usize, usize),
-    pub coo: (usize, usize),
+    pub att: Attribute,
+    pub mov: Attribute,
+    pub coo: Attribute,
+    pub emp: Attribute,
+    pub luck: Attribute,
+    pub int: Attribute,
+    pub body: Attribute,
+    pub refl: Attribute,
+    pub tec: Attribute,
+}
 
-    pub emp: (usize, usize),
-    pub luck: (usize, usize),
-    pub int: (usize, usize),
-    pub body: (usize, usize),
-    pub refl: (usize, usize),
-    pub tec: (usize, usize),
+pub struct Attribute {
+    pub base: usize,
+    pub actual: usize,
+}
+
+impl Attribute {
+    pub fn new(actual: usize, base: usize) -> Self {
+        Attribute { base, actual }
+    }
+}
+
+impl fmt::Display for Attribute {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}/{}", self.actual, self.base)
+    }
 }
 
 impl Character {
@@ -36,37 +54,28 @@ Character {{ \n\
 \tname: {}\n\
 \trole: {}\n\
 \tage: {}\n\
-\tatt: {}/{}\n\
-\tmov: {}/{}\n\
-\tcoo: {}/{}\n\
-\temp: {}/{}\n\
-\tluck: {}/{}\n\
-\tint: {}/{}\n\
-\tbody: {}/{}\n\
-\tref: {}/{}\n\
-\ttec: {}/{}\n\
+\tatt: {}\n\
+\tmov: {}\n\
+\tcoo: {}\n\
+\temp: {}\n\
+\tluck: {}\n\
+\tint: {}\n\
+\tbody: {}\n\
+\tref: {}\n\
+\ttec: {}\n\
 }}",
             self.name,
             self.role,
             self.age,
-            self.att.0,
-            self.att.1,
-            self.mov.0,
-            self.mov.1,
-            self.coo.0,
-            self.coo.1,
-            self.emp.0,
-            self.emp.1,
-            self.luck.0,
-            self.luck.1,
-            self.int.0,
-            self.int.1,
-            self.body.0,
-            self.body.1,
-            self.refl.0,
-            self.refl.1,
-            self.tec.0,
-            self.tec.1,
+            self.att,
+            self.mov,
+            self.coo,
+            self.emp,
+            self.luck,
+            self.int,
+            self.body,
+            self.refl,
+            self.tec,
         );
     }
 }
