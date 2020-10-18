@@ -1,8 +1,9 @@
-use rusted_punk::{Attribute, Character, Skill};
+use rusted_punk::{Attribute, Character, Skill, List};
 
 fn main() {
     //character_test();
     //skill_test();
+    list_test();
 }
 
 fn character_test() {
@@ -26,4 +27,10 @@ fn character_test() {
 fn skill_test() {
     let skill = Skill::new("Schleichen".to_string(), 7, 2, 3);
     skill.print()
+}
+
+// keine ahnung warum aber es geht 
+fn list_test() {
+    let v = List(vec![Skill::new("schleichen".to_string(), 4, 2, 3), Skill::new("schiesen".to_string(), 7, 4, 3), Skill::new("werfen".to_string(), 6, 2, 3)]);
+    println!("{}", v);
 }
