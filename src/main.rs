@@ -1,6 +1,11 @@
-use rusted_punk::{Attribute, Character};
+use rusted_punk::{Attribute, Character, Skill};
 
 fn main() {
+    //character_test();
+    //skill_test();
+}
+
+fn character_test() {
     let cool_guy = Character {
         name: "Erwin Müller".to_string(),
         role: "Corporate".to_string(),
@@ -15,6 +20,10 @@ fn main() {
         refl: Attribute::new(6, 6),
         tec: Attribute::new(10, 10),
     };
-
     cool_guy.print();
+}
+
+fn skill_test() {
+    let skill = Skill::new("Schleichen".to_string(), 7, 2, 3);
+    skill.print()
 }

@@ -79,3 +79,26 @@ Character {{ \n\
         );
     }
 }
+
+pub struct Skill {
+    pub name: String,
+    pub base: usize,
+    pub level: usize,
+    pub level_up_modifierer: usize,
+}
+
+
+impl Skill {
+    pub fn print(self) {
+        println!("Skillname {} {{
+            \ttotal: {} 
+            \tbase: {} 
+            \tlevel: {} 
+            \tlevel up modifeier: {}
+        }}" ,  self.name, self.base+self.level,  self.base, self.level, self.level_up_modifierer)
+    }
+
+    pub fn new(name: String, base: usize, level: usize, level_up_modifierer: usize) -> Self {
+        Skill { name, base, level, level_up_modifierer}
+    }
+}
