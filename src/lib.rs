@@ -1,3 +1,4 @@
+mod inventory;
 use std::fmt;
 
 // Name: Erwin Müller
