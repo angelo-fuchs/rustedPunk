@@ -2,7 +2,7 @@ use rusted_punk::{Attribute, Character, Inventory, Item, List, Skill};
 
 fn main() {
     character_test();
-    //skill_test();
+    skill_test();
     list_test();
 }
 

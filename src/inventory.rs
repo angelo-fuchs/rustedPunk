@@ -15,9 +15,9 @@ pub struct Item {
 impl fmt::Display for Inventory {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         for item in &self.items {
-            write!(f, "{}", item);
+            write!(f, "{}", item)?;
         }
-        write!(f, "Total weight: {}", self.calc_total_weight())
+        write!(f, " Total weight: {}", self.calc_total_weight())
     }
 }
 
