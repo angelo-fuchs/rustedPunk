@@ -1,4 +1,4 @@
-use rusted_punk::{Attribute, Character, Skill, List, Item, Inventory};
+use rusted_punk::{Attribute, Character, Inventory, Item, List, Skill};
 
 fn main() {
     character_test();
@@ -22,8 +22,13 @@ fn character_test() {
         tec: Attribute::new(10, 10),
         inventory: Inventory::new(),
     };
-    cool_guy.inventory.push(Item::new("Broomstick".to_string(), 1, 1500, 0, 
-                                      "Alright you primitive Screwheads, listen up, this is my BROOMSTICK".to_string()));
+    cool_guy.inventory.push(Item::new(
+        "Broomstick".to_string(),
+        1,
+        1500,
+        0,
+        "Alright you primitive Screwheads, listen up, this is my BROOMSTICK".to_string(),
+    ));
     cool_guy.print();
 }
 
@@ -32,8 +37,12 @@ fn skill_test() {
     skill.print()
 }
 
-// keine ahnung warum aber es geht 
+// keine ahnung warum aber es geht
 fn list_test() {
-    let v = List(vec![Skill::new("schleichen".to_string(), 4, 2, 3), Skill::new("schiesen".to_string(), 7, 4, 3), Skill::new("werfen".to_string(), 6, 2, 3)]);
+    let v = List(vec![
+        Skill::new("schleichen".to_string(), 4, 2, 3),
+        Skill::new("schiesen".to_string(), 7, 4, 3),
+        Skill::new("werfen".to_string(), 6, 2, 3),
+    ]);
     println!("{}", v);
 }
