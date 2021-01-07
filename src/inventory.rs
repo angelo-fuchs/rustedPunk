@@ -33,6 +33,10 @@ impl Inventory {
         }
         total
     }
+
+    pub fn push(&mut self, item: Item) {
+        self.items.push(item);
+    }
 }
 
 impl Item {
@@ -47,3 +51,4 @@ impl fmt::Display for Item {
                self.weight_grams*self.amount, self.price_eb, self.comment)
     }
 }
+

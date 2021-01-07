@@ -1,5 +1,7 @@
 mod inventory;
 use std::fmt;
+pub use self::inventory::Inventory;
+pub use self::inventory::Item;
 
 // Name: Erwin Müller
 // Role: Corporate Age: 23
@@ -28,6 +30,7 @@ pub struct Character {
     pub body: Attribute,
     pub refl: Attribute,
     pub tec: Attribute,
+    pub inventory: Inventory,
 }
 
 pub struct Attribute {
@@ -64,6 +67,7 @@ Character {{ \n\
 \tbody: {}\n\
 \tref: {}\n\
 \ttec: {}\n\
+\tInventory: {}\n\
 }}",
             self.name,
             self.role,
@@ -77,6 +81,7 @@ Character {{ \n\
             self.body,
             self.refl,
             self.tec,
+            self.inventory,
         );
     }
 }
