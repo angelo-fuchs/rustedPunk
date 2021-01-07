@@ -1,13 +1,13 @@
-use rusted_punk::{Attribute, Character, Skill, List};
+use rusted_punk::{Attribute, Character, Skill, List, Item, Inventory};
 
 fn main() {
-    //character_test();
+    character_test();
     //skill_test();
     list_test();
 }
 
 fn character_test() {
-    let cool_guy = Character {
+    let mut cool_guy = Character {
         name: "Erwin Müller".to_string(),
         role: "Corporate".to_string(),
         age: 23,
@@ -20,7 +20,10 @@ fn character_test() {
         body: Attribute::new(7, 7),
         refl: Attribute::new(6, 6),
         tec: Attribute::new(10, 10),
+        inventory: Inventory::new(),
     };
+    cool_guy.inventory.push(Item::new("Broomstick".to_string(), 1, 1500, 0, 
+                                      "Alright you primitive Screwheads, listen up, this is my BROOMSTICK".to_string()));
     cool_guy.print();
 }
 
