@@ -23,7 +23,7 @@ impl fmt::Display for Inventory {
 
 impl Inventory {
     pub fn new() -> Inventory {
-        Inventory { items : Vec::new() }
+        Inventory { items: Vec::new() }
     }
 
     pub fn calc_total_weight(&self) -> usize {
@@ -40,15 +40,33 @@ impl Inventory {
 }
 
 impl Item {
-    pub fn new(name: String, amount:usize, weight_grams: usize, price_eb: usize, comment: String) -> Self {
-        Item { name, amount, weight_grams, price_eb, comment }
+    pub fn new(
+        name: String,
+        amount: usize,
+        weight_grams: usize,
+        price_eb: usize,
+        comment: String,
+    ) -> Self {
+        Item {
+            name,
+            amount,
+            weight_grams,
+            price_eb,
+            comment,
+        }
     }
 }
 
 impl fmt::Display for Item {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{} {}, {}g, {}eb \n{}", self.amount, self.name, 
-               self.weight_grams*self.amount, self.price_eb, self.comment)
+        write!(
+            f,
+            "{} {}, {}g, {}eb \n{}",
+            self.amount,
+            self.name,
+            self.weight_grams * self.amount,
+            self.price_eb,
+            self.comment
+        )
     }
 }
-

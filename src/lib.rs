@@ -1,7 +1,7 @@
 mod inventory;
-use std::fmt;
 pub use self::inventory::Inventory;
 pub use self::inventory::Item;
+use std::fmt;
 
 // Name: Erwin Müller
 // Role: Corporate Age: 23
@@ -95,16 +95,28 @@ pub struct Skill {
 
 impl Skill {
     pub fn print(self) {
-        println!("Skillname {} {{
+        println!(
+            "Skillname {} {{
             \ttotal: {} 
             \tbase: {} 
             \tlevel: {} 
             \tlevel up modifeier: {}
-        }}" ,  self.name, self.base+self.level,  self.base, self.level, self.level_up_modifierer)
+        }}",
+            self.name,
+            self.base + self.level,
+            self.base,
+            self.level,
+            self.level_up_modifierer
+        )
     }
 
     pub fn new(name: String, base: usize, level: usize, level_up_modifierer: usize) -> Self {
-        Skill { name, base, level, level_up_modifierer}
+        Skill {
+            name,
+            base,
+            level,
+            level_up_modifierer,
+        }
     }
 }
 
@@ -129,7 +141,9 @@ impl fmt::Display for List {
         for (count, v) in vec.iter().enumerate() {
             // For every element except the first, add a comma.
             // Use the ? operator to return on errors.
-            if count != 0 { write!(f, "\n")?; }
+            if count != 0 {
+                write!(f, "\n")?;
+            }
             write!(f, "{}", v)?;
         }
 
